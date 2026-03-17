@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: HearthstoneMessages
+## Notes: Sends a random farewell message to group chat when teleport-like spells are cast.
+## Author: TheQuibbler
+## Version: 1.0.0
+
+messages.lua
+core.lua
