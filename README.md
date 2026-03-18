@@ -1,7 +1,7 @@
 # HearthstoneMessages
 
 ## Overview
-HearthstoneMessages sends a random farewell line to your group chat when you begin casting a teleport-like spell, such as a Hearthstone-style return spell. It is meant to add flavor to party and raid play with quick, automatic send-off messages. The addon only announces your own casts and includes a short cooldown to prevent spam.
+HearthstoneMessages sends a random farewell line to your group chat when you begin casting a teleport-like spell, such as a Hearthstone. It is meant to add flavor to party and raid play with quick, automatic send-off messages. The addon only announces your own casts and includes a short cooldown to prevent spam.
 
 ## Features
 - Detects your player spellcast start event for teleport-like spell descriptions.
