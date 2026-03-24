@@ -13,12 +13,8 @@ HearthstoneMessages sends a random farewell line to your group chat when you beg
 - Includes a built-in announcement cooldown to avoid duplicate posts.
 
 ## Installation
-1. Download or clone this repository.
-2. Place the `HearthstoneMessages` folder into your WoW addons directory:
-	`World of Warcraft/_retail_/Interface/AddOns/`
-3. Start or restart World of Warcraft.
-4. Run `/reload` in-game if the client is already running.
-5. Verify that `HearthstoneMessages` is enabled on the character select AddOns list.
+1.  Copy the `HearthstoneMessages` folder into your World of Warcraft `Interface/AddOns/` directory.
+2.  Reload the UI (`/reload`) or restart the client. 
 
 ## Usage
 - Join a party or raid.

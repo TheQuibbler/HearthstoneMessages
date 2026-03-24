@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local _, addonTable = ...
 
 local hearthstoneMessagesFrame = CreateFrame("Frame")
 local announcementCooldown = 5
@@ -20,35 +20,19 @@ local function isTeleportDescription(spellDescriptionText)
         or normalizedSpellDescription:find("^teleports you") ~= nil
 end
 
--- Picks a random goodbye message from configured flavor buckets.
-local function selectRandomGoodbyeMessage()
-    local configuredMessages = addonTable.GoodbyeMessages
-    if type(configuredMessages) ~= "table" then
-        return nil
-    end
-
-    local availableFlavorBuckets = {}
-
-    for _, possibleBucket in pairs(configuredMessages) do
-        if type(possibleBucket) == "table" and #possibleBucket > 0 then
-            table.insert(availableFlavorBuckets, possibleBucket)
-        end
-    end
-
-    if #availableFlavorBuckets == 0 then
-        return nil
-    end
-
-    local selectedFlavorBucket = availableFlavorBuckets[math.random(1, #availableFlavorBuckets)]
-    return selectedFlavorBucket[math.random(1, #selectedFlavorBucket)]
-end
-
 -- Selects the best group channel and sends a random message when available.
 local function announceToGroup()
+    local availableMessages = addonTable.GoodbyeMessages
+    if type(availableMessages) ~= "table" or #availableMessages == 0 then
+        return
+    end
+
     local selectedChatChannel
     if IsInRaid() then
         selectedChatChannel = "RAID"
-    elseif IsInGroup() then
+    elseif IsInGroup(LE_PARTY_CATEGORY_INSTANCE) then
+        selectedChatChannel = "INSTANCE_CHAT"
+    elseif IsInGroup(LE_PARTY_CATEGORY_HOME) then
         selectedChatChannel = "PARTY"
     end
 
@@ -56,10 +40,8 @@ local function announceToGroup()
         return
     end
 
-    local selectedMessage = selectRandomGoodbyeMessage()
-    if type(selectedMessage) ~= "string" or selectedMessage == "" then
-        return
-    end
+    local randomMessageIndex = math.random(1, #availableMessages)
+    local selectedMessage = availableMessages[randomMessageIndex]
 
     C_ChatInfo.SendChatMessage(selectedMessage, selectedChatChannel)
 end

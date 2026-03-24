@@ -2,7 +2,7 @@
 ## Title: HearthstoneMessages
 ## Notes: Sends a random farewell message to group chat when teleport-like spells are cast.
 ## Author: TheQuibbler
-## Version: 1.0.0
+## Version: 1.0.2
 
 messages.lua
-core.lua
+HearthstoneMessages.lua
