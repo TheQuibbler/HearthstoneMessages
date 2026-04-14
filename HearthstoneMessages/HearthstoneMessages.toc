@@ -1,4 +1,4 @@
-## Interface: 120001
+## Interface: 120005
 ## Title: HearthstoneMessages
 ## Notes: Sends a random farewell message to group chat when teleport-like spells are cast.
 ## Author: TheQuibbler
